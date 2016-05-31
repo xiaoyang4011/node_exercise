@@ -24,16 +24,25 @@ console.log(n);
 
 */
 
-function f4(){
-	var n = 999;
+function curry(fn) {
+	var _slice = Array.prototype.slice;
 
-	function f5(){
-		console.log(n);
-	}
+	var arg1 = _slice.call(arguments, 1);
 
-	return f5;
+	console.log(arg1);
+
+	return function(){
+		var arg2 = _slice.call(arguments);
+
+		var final_args = arg2.concat(arg1);
+
+		console.log(final_args);
+		return fn.apply(null, final_args);
+	};
 }
 
-var ret = f4();
+function add(a, b, c){
+	return a + b + c;
+}
 
-ret();
+console.log(curry(add, 5)(15, 20));
