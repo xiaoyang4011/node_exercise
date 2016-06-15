@@ -8,8 +8,8 @@ function* f() {
 	}
 }
 
-var f = f();
+var f = f()
 
-console.log(f.next()); //{ value: 0, done: false }
-console.log(f.next()); //{ value: 1, done: false }
-console.log(f.next(true)); //   ?
+console.log(f.next())  //{ value: 0, done: false }
+console.log(f.next())  //{ value: 1, done: false }
+console.log(f.next(true)) //   ?
