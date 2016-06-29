@@ -46,3 +46,12 @@ function p3(){
 	});
 }
 console.log(p3());
+
+function p4() {
+	return new Promise((resolve, reject) => {
+		reject();
+	});
+}
+
+console.log(typeof p4());
+console.log(p4());
