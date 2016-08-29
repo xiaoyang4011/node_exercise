@@ -27,7 +27,6 @@ function p1(){
 	return new Promise((resolve, reject) => {});
 }
 
-console.log(p1());
 
 
 //p2 返回的是一个resolve(成功的)Promise对象
@@ -37,15 +36,23 @@ function p2(){
 	});
 }
 
-console.log(p2());
+var p7 = new Promise((resolve, reject) => {
+	reject('dadadada');
+});
+
+p7.then(function(val){
+	console.log(val);
+}).catch(function(err){
+	console.log('err')
+	console.log(err)
+});
 
 //p3 返回的是一个reject（失败的）Promise对象
 function p3(){
 	return new Promise((resolve, reject) => {
-		reject();
+		reject('sssss');
 	});
 }
-console.log(p3());
 
 function p4() {
 	return new Promise((resolve, reject) => {
@@ -53,5 +60,3 @@ function p4() {
 	});
 }
 
-console.log(typeof p4());
-console.log(p4());
